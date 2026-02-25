@@ -12,13 +12,15 @@ app.get("/api/prayer-times", (c) => {
   }
 
   const coords = new Coordinates(lat, lng);
-  const params = CalculationMethod.MoonsightingCommittee();
+  const params = CalculationMethod.MuslimWorldLeague();
   const now = new Date();
   const times = new PrayerTimes(coords, now, params);
 
+  const imsak = new Date(times.fajr.getTime() - 10 * 60 * 1000);
+
   return c.json({
     date: now.toISOString(),
-    imsak: times.fajr.toISOString(),
+    imsak: imsak.toISOString(),
     fajr: times.fajr.toISOString(),
     sunrise: times.sunrise.toISOString(),
     dhuhr: times.dhuhr.toISOString(),

@@ -121,6 +121,7 @@ function CountdownCard({
         <p className="text-center text-[#6b5040] text-xs">{countdown.progressLabel}</p>
       </div>
 
+      {/* Location */}
       <div className="flex items-center justify-center gap-2 mt-4 pt-4 border-t border-white/5">
         <p className="text-[#6b5040] text-xs">{locationText}</p>
         {locationError && (
@@ -134,12 +135,13 @@ function CountdownCard({
 }
 
 const PRAYER_META = [
-  { key: "imsak", name: "Imsak", icon: "🌙" },
-  { key: "fajr", name: "Subuh", icon: "🌄" },
+  { key: "imsak", name: "Imsak", icon: "🌛" },
+  { key: "fajr", name: "Subuh", icon: "🌤️" },
+  { key: "sunrise", name: "Terbit", icon: "🌄" },
   { key: "dhuhr", name: "Dzuhur", icon: "☀️" },
-  { key: "asr", name: "Ashar", icon: "🌤️" },
+  { key: "asr", name: "Ashar", icon: "🌥️" },
   { key: "maghrib", name: "Maghrib", icon: "🌅" },
-  { key: "isha", name: "Isya", icon: "🌙" },
+  { key: "isha", name: "Isya", icon: "🌃" },
 ] as const;
 
 function ScheduleCard({ prayerData, formatTime }: { prayerData: PrayerData | null; formatTime: (s: string) => string }) {
